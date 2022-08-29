@@ -1,0 +1,112 @@
+[
+  {
+    "Name": "Camilo Vargas",
+    "Direction": "Cll 12 Cra 25 - bogota",
+    "Age": "18",
+    "Family": [
+      {
+        "FamilyId": "458e",
+        "Name": "Carmen Bolivar",
+        "Kinship": "Madre"
+      },
+      {
+        "FamilyId": "458e",
+        "Name": "Javier Florez",
+        "Kinship": "Padre"
+      },
+      {
+        "FamilyId": "458e",
+        "Name": "Luisa Lopez",
+        "Kinship": "Hermana"
+      }
+    ]
+  },
+  {
+    "Name": "Juan Perez",
+    "Direction": "Cll 14 Cra 5 - Cundinamarca",
+    "Age": "25",
+    "Family": [
+      {
+        "FamilyId": "12a",
+        "Name": "Sandra Gonzales",
+        "Kinship": "Madre"
+      },
+      {
+        "FamilyId": "12a",
+        "Name": "Radamel Sanchez",
+        "Kinship": "Padre"
+      },
+      {
+        "FamilyId": "12a",
+        "Name": "Carlos De Leon",
+        "Kinship": "Hermano"
+      }
+    ]
+  },
+  {
+    "Name": "Francisco Alvarez",
+    "Direction": "Cll 22 Cra 6 - Monteria",
+    "Age": "32",
+    "Family": [
+      {
+        "FamilyId": "13i",
+        "Name": "Ana Ramirez",
+        "Kinship": "Madre"
+      },
+      {
+        "FamilyId": "13i",
+        "Name": "Gabriel Florez",
+        "Kinship": "Padre"
+      },
+      {
+        "FamilyId": "13i",
+        "Name": "Ana Marcela",
+        "Kinship": "Hermana"
+      }
+    ]
+  },
+  {
+    "Name": "Javier Valencia",
+    "Direction": "Cll 29 Cra 3 -Valledupar",
+    "Age": "21",
+    "Family": [
+      {
+        "FamilyId": "14j",
+        "Name": "Marisol Castillo",
+        "Kinship": "Madre"
+      },
+      {
+        "FamilyId": "14j",
+        "Name": "Felipe Valencia",
+        "Kinship": "Padre"
+      },
+      {
+        "FamilyId": "14j",
+        "Name": "Kinberly Sierra",
+        "Kinship": "Hermana"
+      }
+    ]
+  },
+  {
+    "Name": "Daniel Martinez",
+    "Direction": "Cll 15 Cra 14 - Armenia",
+    "Age": "24",
+    "Family": [
+      {
+        "FamilyId": "18g",
+        "Name": "Maria Aguirre",
+        "Kinship": "Madre"
+      },
+      {
+        "FamilyId": "18g",
+        "Name": "Robert Balanta",
+        "Kinship": "Padre"
+      },
+      {
+        "FamilyId": "18g",
+        "Name": "Felipe Diaz",
+        "Kinship": "Hermana"
+      }
+    ]
+  }
+]

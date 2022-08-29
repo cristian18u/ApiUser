@@ -1,5 +1,5 @@
 using ApiUser.Models;
-using ApiUsers.Services;
+using ApiUser.Services;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -15,7 +15,7 @@ public class UsersController : ControllerBase
         _usersService = usersService;
 
     /// <summary>
-    /// Devuelve todos los paises
+    /// Devuelve todos los Usuarios
     /// </summary>
     /// <returns></returns>
     [HttpGet]
@@ -26,14 +26,14 @@ public class UsersController : ControllerBase
     [HttpGet("{id:length(24)}")]
     public async Task<ActionResult<User>> Get(string id)
     {
-        var book = await _usersService.GetAsync(id);
+        var user = await _usersService.GetAsync(id);
 
-        if (book is null)
+        if (user is null)
         {
             return NotFound();
         }
 
-        return book;
+        return user;
     }
 
 
@@ -112,22 +112,20 @@ public class UsersController : ControllerBase
     [Route("load")]
     public async Task<string> Load()
     {
-        // string url = "https://restcountries.com/v3/all";
-        // HttpClient client = new HttpClient();
-        // var httpResponse = await client.GetAsync(url);
-        // var content = await httpResponse.Content.ReadAsStringAsync();
-        // dynamic result = JsonConvert.DeserializeObject<dynamic>(content);
-        // foreach (var country in result)
-        // {
-        //     var pais = new Country();
-        //     pais.Name = country.name.common;
-        //     pais.Code = country.cca3;
-        //     pais.Continent = country.continents[0];
-        //     pais.Flag = country.flags[0];
-        //     if (country.capital != null) pais.Capital = country.capital[0];
-        //     pais.Population = country.population;
-        //     await _usersService.CreateAsync(pais);
-        // }
+        StreamReader jsonStream = System.IO.File.OpenText(@"users.json");
+        var json = jsonStream.ReadToEnd();
+        List<User> result = JsonConvert.DeserializeObject<List<User>>(json);
+        foreach (var userArr in result)
+        {
+            var user = new User()
+            {
+                Name = userArr.Name,
+                Direction = userArr.Direction,
+                Age = userArr.Age,
+                Family = userArr.Family
+            };
+            await _usersService.CreateAsync(user);
+        }
         return "charge database";
     }
 }

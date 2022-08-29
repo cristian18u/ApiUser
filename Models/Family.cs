@@ -5,9 +5,9 @@ namespace ApiUser.Models;
 
 public class Family
 {
-    [BsonId]
-    [BsonRepresentation(BsonType.ObjectId)]
-    public string? FamilyId { get; set; }
+    // [BsonId]
+    // [BsonRepresentation(BsonType.ObjectId)]
+    public string FamilyId { get; set; } = null!;
     public string Name { get; set; } = null!;
-    public string Parentesco { get; set; } = null!;
+    public string Kinship { get; set; } = null!;
 }

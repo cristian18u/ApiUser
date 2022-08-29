@@ -1,13 +1,13 @@
 using System.Reflection;
 using ApiUser.Models;
-using ApiUsers.Services;
+using ApiUser.Services;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.Configure<ApiUsersDataBaseSettings>(
-    builder.Configuration.GetSection("ApiCountriesDatabase"));
+    builder.Configuration.GetSection("ApiUsersDatabase"));
 
 builder.Services.AddSingleton<UsersService>();
 

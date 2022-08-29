@@ -11,4 +11,5 @@ public class User
     public string Name { get; set; } = null!;
     public string Direction { get; set; } = null!;
     public string Age { get; set; } = null!;
+    public List<Family> Family { get; set; } = null!;
 }

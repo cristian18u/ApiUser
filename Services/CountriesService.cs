@@ -2,7 +2,7 @@ using ApiUser.Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
-namespace ApiUsers.Services;
+namespace ApiUser.Services;
 
 public class UsersService
 {
