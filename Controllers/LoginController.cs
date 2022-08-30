@@ -21,10 +21,6 @@ public class LoginController : ControllerBase
         _loginService = loginService;
         _configuration = config;
     }
-    // public AuthController(IConfiguration configuration)
-    // {
-    //     _configuration = configuration;
-    // }
 
     /// <summary>
     /// Devuelve todos los Usuarios
@@ -49,18 +45,17 @@ public class LoginController : ControllerBase
     }
 
     /// <summary>
-    /// Crear nuevo pais
+    /// login
     /// </summary>
     /// <param></param>
-    /// <returns>A newly created TodoItem</returns>
+    /// <returns></returns>
     /// <remarks>
     /// Sample request:
     ///
     ///     POST /Todo
     ///     {
-    ///        "id": 1,
-    ///        "name": "Item #1",
-    ///        "isComplete": true
+    ///        "User": "carlos20,
+    ///        "Password": "car123"
     ///     }
     ///
     /// </remarks>
@@ -70,9 +65,7 @@ public class LoginController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post(UserLogin UserLogin)
     {
-        Console.WriteLine(UserLogin);
         var userDb = await _loginService.FilterNameAsync(UserLogin.User);
-        Console.WriteLine(userDb);
         var passwordCorrect = userDb == null ? false : UserLogin.Password == userDb.Password;
 
         if (userDb == null || !passwordCorrect)
@@ -95,6 +88,14 @@ public class LoginController : ControllerBase
         var jwt = new JwtSecurityTokenHandler().WriteToken(token);
 
         return Ok(jwt);
+    }
+
+    [HttpPost("admin")]
+    public async Task<IActionResult> NuevoAdmin(UserLogin newUser)
+    {
+        await _loginService.CreateAsync(newUser);
+
+        return CreatedAtAction(nameof(Get), new { id = newUser._id }, newUser);
     }
 
     [HttpPut("{id:length(24)}")]
@@ -123,7 +124,6 @@ public class LoginController : ControllerBase
         {
             return NotFound();
         }
-
         await _loginService.RemoveAsync(id);
 
         return NoContent();

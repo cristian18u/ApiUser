@@ -39,23 +39,30 @@ public class UsersController : ControllerBase
 
 
     /// <summary>
-    /// Crear nuevo pais
+    /// Crear nuevo usuario
     /// </summary>
-    /// <param name="newUser"></param>
-    /// <returns>A newly created TodoItem</returns>
+    /// <returns></returns>
     /// <remarks>
     /// Sample request:
     ///
-    ///     POST /Todo
-    ///     {
-    ///        "id": 1,
-    ///        "name": "Item #1",
-    ///        "isComplete": true
+    /// POST /Todo
+    /// {
+    ///  "Name": "Item #1",
+    ///  "Direction": "Cll 20 Cra 45 - cartagena",
+    ///  "Age": "18"
+    ///  "Family": [
+    ///             {
+    ///              "FamilyId": "234h",
+    ///              "Name: "Carlos Aguirre",
+    ///              "Kinship": "Padre"
+    ///              }
+    ///             ]
     ///     }
     ///
     /// </remarks>
     /// <response code="201">Returns the newly created item</response>
     /// <response code="400">If the item is null</response>
+
     [HttpPost]
     public async Task<IActionResult> Post(User newUser)
     {

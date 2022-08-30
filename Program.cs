@@ -44,6 +44,26 @@ builder.Services.AddSwaggerGen(options =>
             Title = "Api User",
             Description = "Api de Users using .net core y mongodb",
         });
+        options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+        {
+            Description = "Please insert token",
+            Name = "Authorization",
+            In = ParameterLocation.Header,
+            Type = SecuritySchemeType.Http,
+            Scheme = "bearer",
+            BearerFormat = "JWT"
+        });
+        options.AddSecurityRequirement(new OpenApiSecurityRequirement{
+            {
+                new OpenApiSecurityScheme {
+                    Reference = new OpenApiReference {
+                        Type = ReferenceType.SecurityScheme,
+                        Id= "Bearer"
+                    }
+                },
+                new string []{}
+            }
+        });
         var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
         options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
     });
