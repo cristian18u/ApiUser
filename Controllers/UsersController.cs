@@ -1,10 +1,12 @@
 using ApiUser.Models;
 using ApiUser.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace ApiUser.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class UsersController : ControllerBase
@@ -22,7 +24,6 @@ public class UsersController : ControllerBase
 
     public async Task<List<User>> Get() =>
         await _usersService.GetAsync();
-    static readonly HttpClient client = new HttpClient();
     [HttpGet("{id:length(24)}")]
     public async Task<ActionResult<User>> Get(string id)
     {
